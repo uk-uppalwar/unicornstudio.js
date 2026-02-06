@@ -6,6 +6,13 @@ export default {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      'sm': '640px',  // Tablet start
+      'md': '768px',
+      'lg': '1024px', // Desktop start
+      'xl': '1280px', // Large Desktop
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         bg: {
@@ -39,9 +46,19 @@ export default {
         display: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
+        // H1: 72px (lg) -> 48px (md) -> 36px (sm)
+        'h1-lg': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'h1-md': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'h1-sm': ['36px', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+
+        // H2: 48px -> 36px -> 28px
+        'h2-lg': ['48px', { lineHeight: '1.2' }],
+        'h2-md': ['36px', { lineHeight: '1.2' }],
+        'h2-sm': ['28px', { lineHeight: '1.3' }],
+
         xs: ['12px', { lineHeight: '1.5' }],
         sm: ['14px', { lineHeight: '1.5' }],
-        base: ['16px', { lineHeight: '1.5' }],
+        base: ['16px', { lineHeight: '1.5' }], // Minimum for inputs
         lg: ['18px', { lineHeight: '1.5' }],
         xl: ['20px', { lineHeight: '1.4' }],
         '2xl': ['24px', { lineHeight: '1.3' }],
@@ -51,11 +68,7 @@ export default {
         '6xl': ['72px', { lineHeight: '1.1' }],
       },
       spacing: {
-        // Mapping requested px values to standard or custom keys if needed.
-        // Tailwind defaults cover most, but we can enforce the specific grid here if desired.
-        // We will extend to add any missing ones or just rely on defaults where they match.
-        // 4, 8, 12, 16, 24, 32, 48, 64, 96, 128
-        // Defaults: 1(4), 2(8), 3(12), 4(16), 6(24), 8(32), 12(48), 16(64), 24(96), 32(128)
+        'safe-bottom': 'env(safe-area-inset-bottom)',
       },
       transitionDuration: {
         fast: '150ms',
